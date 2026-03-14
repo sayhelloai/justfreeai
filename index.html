@@ -70,7 +70,7 @@
     <div class="container nav-inner">
       <a href="/" class="logo" onclick="event.preventDefault(); goHome ? goHome() : location.reload()">
         <div class="logo-mark">J</div>
-        <span class="logo-text">Just<span>Free</span>AI</span>
+        <span class="logo-text">Just<span style="color:var(--blue)">Free</span>AI</span>
       </a>
       <div class="nav-search">
         <span class="nav-search-icon">⌕</span>
@@ -79,7 +79,7 @@
       <div class="nav-links">
         <a href="/submit.html" class="nav-link">Submit a Tool</a>
         <a href="/about.html" class="nav-link">About</a>
-        <a href="mailto:sponsor@justfreeai.com" class="btn-submit">Sponsor</a>
+        <a href="mailto:sponsor@justfreeai.com" class="btn-sponsor">Sponsor</a>
       </div>
     </div>
   </nav>
@@ -94,21 +94,44 @@
   </main>
 
   <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="/" class="logo" onclick="event.preventDefault(); goHome ? goHome() : location.reload()">
-        <div class="logo-mark">J</div>
-        <span class="logo-text">Just<span>Free</span>AI</span>
-      </a>
-      <div class="footer-links">
-        <a href="/about.html" class="footer-link">About</a>
-        <a href="/submit.html" class="footer-link">Submit Tool</a>
-        <a href="/sitemap.xml" class="footer-link">Sitemap</a>
-        <a href="mailto:hello@justfreeai.com" class="footer-link">Contact</a>
-        <a href="/privacy.html" class="footer-link">Privacy</a>
+    <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="logo" onclick="event.preventDefault(); goHome ? goHome() : location.reload()">
+            <div class="logo-mark">J</div>
+            <span class="logo-text">Just<span>Free</span>AI</span>
+          </a>
+          <p>The internet's most curated directory of free AI tools. Every listing has a genuine free tier — verified by our team weekly.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Directory</div>
+          <a href="/?cat=AI Assistant">AI Assistants</a>
+          <a href="/?cat=Coding">Coding Tools</a>
+          <a href="/?cat=Image Generation">Image Generation</a>
+          <a href="/?cat=Video">Video AI</a>
+          <a href="/?cat=Audio & Music">Audio &amp; Music</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="/about.html">About Us</a>
+          <a href="/submit.html">Submit a Tool</a>
+          <a href="mailto:sponsor@justfreeai.com">Advertise</a>
+          <a href="mailto:hello@justfreeai.com">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
       </div>
-      <div class="footer-copy">
-        © 2025 <span>JustFreeAI</span> · Built with ❤️ to keep AI free for everyone
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 <span>JustFreeAI</span> · Built to keep AI free for everyone</div>
+        <div class="footer-bottom-links">
+          <a href="/privacy.html">Privacy</a>
+          <a href="mailto:hello@justfreeai.com">Contact</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
       </div>
     </div>
   </footer>

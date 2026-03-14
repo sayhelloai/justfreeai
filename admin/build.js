@@ -179,7 +179,7 @@ function generateToolPage(tool, allTools) {
               ${logoImg}
             </div>
             <div>
-              <h1 style="font-family:'Syne',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:800;color:#f5f0e8;margin-bottom:8px;letter-spacing:-0.02em">${escapeHtml(tool.name)}</h1>
+              <h1 style="font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);font-weight:800;color:#032D60;margin-bottom:8px;letter-spacing:-0.02em">${escapeHtml(tool.name)}</h1>
               <p style="font-size:17px;color:#8a9080;margin-bottom:16px">${escapeHtml(tool.tagline)}</p>
               <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
                 <span style="background:rgba(200,241,53,0.08);border:1px solid rgba(200,241,53,0.2);border-radius:6px;padding:4px 12px;font-size:12px;font-weight:600;color:${badgeColor}">✦ ${escapeHtml(tool.free_tier_badge)}</span>
@@ -194,15 +194,15 @@ function generateToolPage(tool, allTools) {
           <!-- CTA -->
           <div style="margin-bottom:36px">
             <a href="${escapeHtml(tool.url)}" target="_blank" rel="noopener sponsored" 
-               style="display:inline-flex;align-items:center;gap:8px;background:#c8f135;color:#0a0f0a;padding:16px 36px;border-radius:14px;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;text-decoration:none;transition:background 0.2s">
+               class="tool-cta" style="font-size:16px;padding:14px 32px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;text-decoration:none">
               Try ${escapeHtml(tool.name)} Free →
             </a>
             <p style="margin-top:10px;font-size:12px;color:#5a6055">No credit card required · Opens in new tab</p>
           </div>
 
           <!-- Free Tier Box -->
-          <div style="background:rgba(77,255,224,0.04);border:1px solid rgba(77,255,224,0.15);border-radius:14px;padding:24px 28px;margin-bottom:32px">
-            <h2 style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#4dffe0;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px">🎁 What's Free</h2>
+          <div style="background:#EBF5EE;border:1px solid #B3DEC0;border-radius:14px;padding:24px 28px;margin-bottom:32px">
+            <h2 style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#2E844A;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px">🎁 What's Free</h2>
             <p style="font-size:16px;color:#e8ead4;line-height:1.6">${escapeHtml(tool.free_tier)}</p>
           </div>
 
@@ -256,7 +256,7 @@ function generateToolPage(tool, allTools) {
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
+    <div class="container"><div class="footer-bottom">
       <a href="/" class="logo">
         <div class="logo-mark">J</div>
         <span class="logo-text">Just<span>Free</span>AI</span>
