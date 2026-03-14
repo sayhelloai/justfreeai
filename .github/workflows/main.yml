@@ -1,0 +1,53 @@
+name: Build & Weekly Discovery
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Static Pages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build static tool pages
+        run: node admin/build.js
+      - name: Commit if changed
+        run: |
+          git config --global user.name "JustFreeAI Bot"
+          git config --global user.email "bot@justfreeai.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Auto-build"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  discover:
+    name: Weekly Tool Discovery
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run discovery agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          APPROVAL_SECRET: ${{ secrets.APPROVAL_SECRET }}
+          SITE_URL: https://justfreeai.com
+        run: |
+          cd agent
+          python discover.py
