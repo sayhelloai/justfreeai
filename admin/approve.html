@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Approve Tool — JustFreeAI Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .approval-card { max-width: 560px; width: 100%; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 40px; }
+    .status-icon { font-size: 48px; margin-bottom: 16px; }
+    .approval-card h1 { font-size: 28px; color: var(--cream); margin-bottom: 12px; }
+    .approval-card p { color: var(--text-dim); font-size: 15px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="approval-card">
+    <div id="state-loading" style="text-align:center">
+      <div class="status-icon">⟳</div>
+      <h1>Processing...</h1>
+      <p>Verifying approval and adding tool to the directory.</p>
+    </div>
+    <div id="state-success" style="display:none; text-align:center">
+      <div class="status-icon">✅</div>
+      <h1>Tool Published!</h1>
+      <p id="success-msg">The tool has been added to JustFreeAI.</p>
+      <a href="/" class="tool-cta" style="margin-top:24px; display:inline-flex">View on site →</a>
+    </div>
+    <div id="state-error" style="display:none; text-align:center">
+      <div class="status-icon">❌</div>
+      <h1>Error</h1>
+      <p id="error-msg">Something went wrong.</p>
+      <p style="margin-top:16px; font-size:13px; color:var(--text-faint)">Try adding the tool manually by editing <code style="color:var(--lime)">tools/tools.json</code> in your GitHub repo.</p>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * This page handles email approval links.
+     * It uses the GitHub Contents API to add the approved tool to tools.json.
+     *
+     * HOW IT WORKS:
+     * 1. User clicks "Approve" link in digest email
+     * 2. This page loads with ?secret=X&tool=JSON in the URL
+     * 3. It verifies the secret matches APPROVAL_SECRET
+     * 4. It calls the GitHub API to update tools.json with the new tool
+     *
+     * SETUP: Set these as GitHub repo secrets + pass them to the static build:
+     *   GITHUB_TOKEN   — Personal Access Token with repo write access
+     *   GITHUB_OWNER   — Your GitHub username
+     *   GITHUB_REPO    — Your repo name (e.g. justfreeai)
+     *   APPROVAL_SECRET — Same value as in your agent .env
+     *
+     * For a static site, you'll need a small Netlify Function to handle this
+     * securely (see /netlify/functions/approve.js for the implementation).
+     * The link in the email will point to /.netlify/functions/approve?... instead.
+     */
+
+    const params = new URLSearchParams(window.location.search);
+    const secret = params.get('secret');
+    const toolRaw = params.get('tool');
+
+    // NOTE: For full security, the actual approval logic runs on Netlify Functions
+    // (see netlify/functions/approve.js). This page just shows the result.
+    // If you're using this directly, it will redirect to the Netlify function.
+
+    async function processApproval() {
+      if (!secret || !toolRaw) {
+        showError('Missing approval parameters. Check the email link.');
+        return;
+      }
+
+      let toolData;
+      try {
+        toolData = JSON.parse(decodeURIComponent(toolRaw));
+      } catch(e) {
+        showError('Could not parse tool data: ' + e.message);
+        return;
+      }
+
+      // Call Netlify serverless function to do the actual GitHub write
+      try {
+        const res = await fetch('/.netlify/functions/approve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ secret, tool: toolData })
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+          showSuccess(`"${toolData.name}" is now live on JustFreeAI! The site will rebuild in ~30 seconds.`);
+        } else {
+          showError(result.error || 'GitHub API error. Check Netlify function logs.');
+        }
+      } catch(e) {
+        showError('Network error: ' + e.message + '. Check Netlify function is deployed.');
+      }
+    }
+
+    function showSuccess(msg) {
+      document.getElementById('state-loading').style.display = 'none';
+      document.getElementById('state-success').style.display = 'block';
+      document.getElementById('success-msg').textContent = msg;
+    }
+
+    function showError(msg) {
+      document.getElementById('state-loading').style.display = 'none';
+      document.getElementById('state-error').style.display = 'block';
+      document.getElementById('error-msg').textContent = msg;
+    }
+
+    processApproval();
+  </script>
+</body>
+</html>

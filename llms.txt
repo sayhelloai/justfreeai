@@ -1,0 +1,120 @@
+# JustFreeAI — AI Tool Directory
+
+> The internet's most curated directory of free AI tools, all with genuine free tiers. Every tool listed has a genuine free tier — no trials, no credit cards required. Updated weekly.
+
+## What is JustFreeAI?
+
+JustFreeAI (https://justfreeai.com) is a hand-curated directory of 39+ AI tools that are genuinely free to use. Every tool has a real, meaningful free tier verified by our team.
+
+## All Listed Tools
+
+- [ChatGPT](https://justfreeai.com/tool/chatgpt-free.html): The world's most popular AI assistant — free forever. Free tier: Unlimited GPT-4o mini, generous GPT-4o daily limit, DALL·E image gen, memory
+- [Claude](https://justfreeai.com/tool/claude-ai.html): Thoughtful, nuanced AI for writing, coding and analysis. Free tier: Daily Claude Sonnet access, 200K token context, file uploads, projects
+- [Gemini](https://justfreeai.com/tool/gemini-google.html): Google's AI — free, multimodal, and deeply integrated. Free tier: Unlimited Gemini 1.5 Flash, image understanding, Google Docs/Sheets integration
+- [Perplexity AI](https://justfreeai.com/tool/perplexity-ai.html): AI-powered search that actually cites its sources. Free tier: Unlimited searches, source citations, GPT-4o and Claude on free tier
+- [NotebookLM](https://justfreeai.com/tool/notebooklm.html): Google's AI research assistant — entirely free. Free tier: Completely free — no paid tier exists. Unlimited notebooks, 50 sources each.
+- [Bolt.new](https://justfreeai.com/tool/bolt-new.html): Full-stack web apps from a prompt, in your browser. Free tier: 150K tokens/day free, deploy to Netlify for free
+- [Microsoft Copilot](https://justfreeai.com/tool/copilot-microsoft.html): Microsoft's free AI — powered by GPT-4o. Free tier: Unlimited GPT-4o, DALL·E image gen, Bing web search — all free
+- [Mistral Le Chat](https://justfreeai.com/tool/mistral-le-chat.html): Europe's best AI — blazing fast and free. Free tier: Unlimited Mistral Large access, web search, image generation
+- [HuggingChat](https://justfreeai.com/tool/hugging-face-chat.html): Open-source AI chat — no account needed. Free tier: Unlimited — completely free, no account needed for basic use
+- [Poe](https://justfreeai.com/tool/poe-quora.html): Access 100+ AI models in one free app. Free tier: Daily message limits across 100+ AI models including GPT-4o and Claude
+- [Cursor](https://justfreeai.com/tool/cursor-free.html): AI-powered code editor — free for individuals. Free tier: 2,000 completions/month, 50 slow premium requests — free forever
+- [GitHub Copilot Free](https://justfreeai.com/tool/github-copilot-free.html): Microsoft's AI coding assistant — now has a free tier. Free tier: 2,000 completions/month, 50 chat messages, GPT-4o and Claude Sonnet
+- [v0 by Vercel](https://justfreeai.com/tool/v0-vercel.html): Generate beautiful UI components with a single prompt. Free tier: 10 free generations/day, full component library access
+- [Replit](https://justfreeai.com/tool/replit-free.html): Code, build, and deploy apps — AI included free. Free tier: Free Replit AI with daily messages, unlimited public repls, basic hosting
+- [Phind](https://justfreeai.com/tool/phind-ai.html): AI search engine built for developers. Free tier: Unlimited searches, code examples, web search — completely free
+- [Consensus](https://justfreeai.com/tool/consensus-ai.html): AI search engine for scientific research papers. Free tier: 20 searches/day, full paper citations, evidence synthesis
+- [You.com](https://justfreeai.com/tool/you-com.html): Private AI search and assistant — totally free. Free tier: Unlimited AI searches and chat, image generation, private mode
+- [Ideogram](https://justfreeai.com/tool/ideogram.html): AI image gen that nails text inside images. Free tier: 10 slow generations/day, unlimited slow-queue access
+- [Adobe Firefly](https://justfreeai.com/tool/adobe-firefly.html): Adobe's AI image gen — commercially safe output. Free tier: 25 generative credits/month, commercial use allowed
+- [Canva AI](https://justfreeai.com/tool/canva-ai.html): Design anything with AI — free for individuals. Free tier: 500 AI image generations/month, Magic Write 50 uses/month, background remover
+- [Krea AI](https://justfreeai.com/tool/krea-ai.html): Real-time AI image generation as you type. Free tier: 35 free daily generations, real-time canvas, upscaling tools
+- [Suno](https://justfreeai.com/tool/suno-music.html): Generate full songs with lyrics from a text prompt. Free tier: 50 credits/day (~10 songs), non-commercial use
+- [ElevenLabs](https://justfreeai.com/tool/elevenlabs-free.html): Hyper-realistic AI voices for any content. Free tier: 10,000 characters/month, 3 custom voices, 30+ languages
+- [Udio](https://justfreeai.com/tool/udio-music.html): Generate studio-quality music from text descriptions. Free tier: 1,200 credits/month (~300 song clips), non-commercial use
+- [Descript](https://justfreeai.com/tool/descript-free.html): Edit audio and video by editing the transcript. Free tier: 3 hours of transcription/month, unlimited projects, AI filler word removal
+- [Kling AI](https://justfreeai.com/tool/kling-ai.html): Text-to-video AI with a surprisingly generous free tier. Free tier: 66 free credits/day, up to 5s HD videos
+- [Luma Dream Machine](https://justfreeai.com/tool/luma-dream-machine.html): Cinematic AI video generation from text or images. Free tier: 30 free video generations/month, 720p HD output
+- [Pika](https://justfreeai.com/tool/pika-labs.html): Create and edit videos with AI in seconds. Free tier: 250 credits/month free, HD video generation
+- [Runway](https://justfreeai.com/tool/runway-gen3.html): Professional video AI used by filmmakers. Free tier: 125 lifetime credits on signup, video generation and editing
+- [Gamma](https://justfreeai.com/tool/gamma-app.html): Beautiful AI presentations in seconds. Free tier: 400 AI credits on signup, unlimited views, export to PDF/PPT
+- [Tome](https://justfreeai.com/tool/tome-ai.html): AI-powered storytelling and presentations. Free tier: Unlimited pages and presentations, AI generation, sharing
+- [Napkin AI](https://justfreeai.com/tool/napkin-ai.html): Turn text into beautiful diagrams automatically. Free tier: Free forever plan with unlimited public diagrams
+- [Otter.ai](https://justfreeai.com/tool/otter-ai.html): AI meeting transcription and notes — free forever. Free tier: 300 transcription minutes/month, AI meeting summaries, Zoom/Meet integration
+- [Notion AI](https://justfreeai.com/tool/notion-ai-free.html): AI writing and summarization inside your workspace. Free tier: 20 free AI responses to try; Notion free plan (without AI) is excellent
+- [Grammarly](https://justfreeai.com/tool/grammarly-free.html): AI writing assistant — free for core features. Free tier: Unlimited grammar/spelling checks, tone detection, browser extension
+- [Writesonic](https://justfreeai.com/tool/writesonic-free.html): AI content writer with a usable free tier. Free tier: 10,000 words/month free, 100+ AI writing templates
+- [ChatPDF](https://justfreeai.com/tool/chatpdf.html): Chat with any PDF document — free. Free tier: 2 PDFs/day (up to 120 pages each), 50 questions per PDF
+- [Soundraw](https://justfreeai.com/tool/soundraw.html): AI music for creators — free to compose. Free tier: Generate and preview unlimited music free — pay only to download
+- [Mixo](https://justfreeai.com/tool/mixo-ai.html): Launch an AI-built landing page in seconds. Free tier: 1 live AI-generated website, email collection, SEO basics
+
+## Categories
+
+### AI Assistant
+- ChatGPT: The world's most popular AI assistant — free forever
+- Claude: Thoughtful, nuanced AI for writing, coding and analysis
+- Gemini: Google's AI — free, multimodal, and deeply integrated
+- Microsoft Copilot: Microsoft's free AI — powered by GPT-4o
+- Mistral Le Chat: Europe's best AI — blazing fast and free
+- HuggingChat: Open-source AI chat — no account needed
+- Poe: Access 100+ AI models in one free app
+
+### AI Search
+- Perplexity AI: AI-powered search that actually cites its sources
+- Phind: AI search engine built for developers
+- Consensus: AI search engine for scientific research papers
+- You.com: Private AI search and assistant — totally free
+
+### Research
+- NotebookLM: Google's AI research assistant — entirely free
+- ChatPDF: Chat with any PDF document — free
+
+### Coding
+- Bolt.new: Full-stack web apps from a prompt, in your browser
+- Cursor: AI-powered code editor — free for individuals
+- GitHub Copilot Free: Microsoft's AI coding assistant — now has a free tier
+- v0 by Vercel: Generate beautiful UI components with a single prompt
+- Replit: Code, build, and deploy apps — AI included free
+
+### Image Generation
+- Ideogram: AI image gen that nails text inside images
+- Adobe Firefly: Adobe's AI image gen — commercially safe output
+- Canva AI: Design anything with AI — free for individuals
+- Krea AI: Real-time AI image generation as you type
+
+### Audio & Music
+- Suno: Generate full songs with lyrics from a text prompt
+- ElevenLabs: Hyper-realistic AI voices for any content
+- Udio: Generate studio-quality music from text descriptions
+- Descript: Edit audio and video by editing the transcript
+- Soundraw: AI music for creators — free to compose
+
+### Video
+- Kling AI: Text-to-video AI with a surprisingly generous free tier
+- Luma Dream Machine: Cinematic AI video generation from text or images
+- Pika: Create and edit videos with AI in seconds
+- Runway: Professional video AI used by filmmakers
+
+### Presentations
+- Gamma: Beautiful AI presentations in seconds
+- Tome: AI-powered storytelling and presentations
+
+### Productivity
+- Napkin AI: Turn text into beautiful diagrams automatically
+- Otter.ai: AI meeting transcription and notes — free forever
+- Notion AI: AI writing and summarization inside your workspace
+- Mixo: Launch an AI-built landing page in seconds
+
+### Writing
+- Grammarly: AI writing assistant — free for core features
+- Writesonic: AI content writer with a usable free tier
+
+## Contact
+
+- General: hello@justfreeai.com
+- Sponsorship: sponsor@justfreeai.com
+- Submit a tool: https://justfreeai.com/submit.html
+
+## Data
+
+Full tool database (JSON): https://justfreeai.com/tools/tools.json

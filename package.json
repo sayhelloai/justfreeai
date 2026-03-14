@@ -1,0 +1,15 @@
+{
+  "name": "justfreeai",
+  "version": "1.0.0",
+  "description": "The best curated directory of free AI tools",
+  "scripts": {
+    "build": "node admin/build.js",
+    "dev": "npx serve . -p 3000",
+    "new-tool": "node admin/add-tool.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["free AI tools", "AI directory", "free tier AI"],
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://justfreeai.com/sitemap.xml
+
+# Allow AI crawlers to read the llms.txt file
+User-agent: GPTBot
+Allow: /llms.txt
+Allow: /tools/tools.json
+
+User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /tools/tools.json
+
+User-agent: PerplexityBot
+Allow: /llms.txt
+Allow: /tools/tools.json
+
+User-agent: Googlebot
+Allow: /

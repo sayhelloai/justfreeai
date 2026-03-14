@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustFreeAI Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+    .stat-num { font-family: var(--font-head); font-size: 40px; font-weight: 800; color: var(--lime); }
+    .stat-label { font-size: 13px; color: var(--text-faint); margin-top: 4px; }
+    .tool-row { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .tool-row:last-child { border-bottom: none; }
+    .badge { font-size: 11px; padding: 3px 9px; border-radius: 5px; font-weight: 600; }
+    .badge-lime { background: var(--lime-glow); color: var(--lime); border: 1px solid rgba(200,241,53,0.2); }
+    .badge-teal { background: rgba(77,255,224,0.06); color: var(--teal); border: 1px solid rgba(77,255,224,0.2); }
+    .badge-amber { background: rgba(255,179,71,0.06); color: var(--amber); border: 1px solid rgba(255,179,71,0.2); }
+    .admin-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
+    .section-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .section-card-header { padding: 18px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .section-card-body { padding: 0 24px; }
+    .admin-page { padding: 32px; }
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .filter-pill { padding: 7px 16px; border-radius: 100px; font-size: 13px; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); transition: all 0.15s; }
+    .filter-pill:hover, .filter-pill.active { background: var(--lime-glow); border-color: var(--lime-dim); color: var(--lime); }
+    .action-btn { padding: 6px 14px; border-radius: 7px; font-size: 12px; font-weight: 600; border: none; cursor: pointer; transition: all 0.15s; }
+    .btn-danger { background: rgba(255,95,95,0.1); color: var(--red); border: 1px solid rgba(255,95,95,0.2); }
+    .btn-danger:hover { background: rgba(255,95,95,0.2); }
+    input[type="search"] { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; color: var(--text); font-family: var(--font-body); font-size: 14px; outline: none; width: 280px; }
+    input[type="search"]:focus { border-color: var(--lime-dim); }
+  </style>
+</head>
+<body>
+
+  <!-- Admin Header -->
+  <div class="admin-header">
+    <div style="display:flex; align-items:center; gap:16px">
+      <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none">
+        <div class="logo-mark">J</div>
+        <span class="logo-text">Just<span>Free</span>AI</span>
+      </a>
+      <span style="color:var(--border2); font-size:18px">/</span>
+      <span style="font-family:var(--font-head); font-size:16px; font-weight:700; color:var(--text-dim)">Admin</span>
+    </div>
+    <div style="display:flex; gap:10px">
+      <a href="/" class="nav-link" style="font-size:13px">View Site</a>
+      <a href="/submit.html" class="btn-submit">+ Add Tool</a>
+    </div>
+  </div>
+
+  <div class="admin-page">
+
+    <!-- Stats row -->
+    <div class="admin-grid" style="margin-bottom:32px" id="stats-row">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-total">—</div>
+        <div class="stat-label">Total Tools Listed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-featured">—</div>
+        <div class="stat-label">Featured / Editor's Picks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-sponsored">—</div>
+        <div class="stat-label">Sponsored Listings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-categories">—</div>
+        <div class="stat-label">Categories Covered</div>
+      </div>
+    </div>
+
+    <!-- Tools table -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <h2 style="font-size:18px; color:var(--cream)">All Tools</h2>
+        <div style="display:flex; gap:10px; align-items:center">
+          <input type="search" id="admin-search" placeholder="Search tools..." oninput="filterTools()">
+          <select id="cat-filter" class="form-select" style="height:38px; width:auto; padding:0 12px; font-size:13px" onchange="filterTools()">
+            <option value="">All Categories</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-bar" style="padding:16px 24px 0">
+        <span class="filter-pill active" data-badge="all" onclick="setBadgeFilter(this, 'all')">All</span>
+        <span class="filter-pill" data-badge="100% Free" onclick="setBadgeFilter(this, '100% Free')">100% Free</span>
+        <span class="filter-pill" data-badge="Truly Free" onclick="setBadgeFilter(this, 'Truly Free')">Truly Free</span>
+        <span class="filter-pill" data-badge="Generous Free" onclick="setBadgeFilter(this, 'Generous Free')">Generous Free</span>
+        <span class="filter-pill" data-badge="Free to Start" onclick="setBadgeFilter(this, 'Free to Start')">Free to Start</span>
+        <span class="filter-pill" data-featured onclick="setFeaturedFilter(this)">Featured only</span>
+        <span class="filter-pill" data-sponsored onclick="setSponsoredFilter(this)">Sponsored only</span>
+      </div>
+
+      <div class="section-card-body" id="tools-list" style="padding-bottom:8px">
+        <div style="padding:40px 0; text-align:center; color:var(--text-faint)">Loading tools...</div>
+      </div>
+    </div>
+
+    <!-- Category breakdown -->
+    <div class="section-card" style="margin-top:24px">
+      <div class="section-card-header">
+        <h2 style="font-size:18px; color:var(--cream)">Category Breakdown</h2>
+      </div>
+      <div id="cat-breakdown" style="padding:24px; display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:12px">
+        Loading...
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let allTools = [];
+    let badgeFilter = 'all';
+    let featuredOnly = false;
+    let sponsoredOnly = false;
+
+    async function loadTools() {
+      const res = await fetch('../tools/tools.json');
+      allTools = await res.json();
+      initStats();
+      initCatFilter();
+      renderTools(allTools);
+      renderCategories();
+    }
+
+    function initStats() {
+      document.getElementById('stat-total').textContent = allTools.filter(t => t.approved).length;
+      document.getElementById('stat-featured').textContent = allTools.filter(t => t.featured).length;
+      document.getElementById('stat-sponsored').textContent = allTools.filter(t => t.sponsored).length;
+      const cats = new Set(allTools.map(t => t.category));
+      document.getElementById('stat-categories').textContent = cats.size;
+    }
+
+    function initCatFilter() {
+      const cats = [...new Set(allTools.map(t => t.category))].sort();
+      const sel = document.getElementById('cat-filter');
+      cats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c; opt.textContent = c;
+        sel.appendChild(opt);
+      });
+    }
+
+    function filterTools() {
+      const q = document.getElementById('admin-search').value.toLowerCase();
+      const cat = document.getElementById('cat-filter').value;
+      let filtered = allTools.filter(t => {
+        const matchQ = !q || t.name.toLowerCase().includes(q) || t.category.toLowerCase().includes(q);
+        const matchCat = !cat || t.category === cat;
+        const matchBadge = badgeFilter === 'all' || t.free_tier_badge === badgeFilter;
+        const matchFeatured = !featuredOnly || t.featured;
+        const matchSponsored = !sponsoredOnly || t.sponsored;
+        return matchQ && matchCat && matchBadge && matchFeatured && matchSponsored;
+      });
+      renderTools(filtered);
+    }
+
+    function setBadgeFilter(el, val) {
+      badgeFilter = val;
+      document.querySelectorAll('[data-badge]').forEach(e => e.classList.remove('active'));
+      el.classList.add('active');
+      filterTools();
+    }
+
+    function setFeaturedFilter(el) {
+      featuredOnly = !featuredOnly;
+      el.classList.toggle('active', featuredOnly);
+      filterTools();
+    }
+
+    function setSponsoredFilter(el) {
+      sponsoredOnly = !sponsoredOnly;
+      el.classList.toggle('active', sponsoredOnly);
+      filterTools();
+    }
+
+    function badgeClass(b) {
+      if (b === '100% Free' || b === 'Truly Free') return 'badge-teal';
+      if (b === 'Generous Free') return 'badge-lime';
+      return 'badge-amber';
+    }
+
+    function renderTools(tools) {
+      if (!tools.length) {
+        document.getElementById('tools-list').innerHTML = '<div style="padding:40px; text-align:center; color:var(--text-faint)">No tools match your filters.</div>';
+        return;
+      }
+
+      const html = tools.map(t => `
+        <div class="tool-row">
+          <div style="width:36px; height:36px; border-radius:9px; background:var(--bg3); border:1px solid var(--border); overflow:hidden; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-head); font-weight:800; color:var(--lime); font-size:15px">
+            ${t.logo ? `<img src="${t.logo}" alt="" style="width:100%;height:100%;object-fit:contain;padding:5px" onerror="this.style.display='none'">` : t.name[0]}
+          </div>
+          <div style="flex:1; min-width:0">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap">
+              <a href="/tool/${t.id}.html" target="_blank" style="font-size:14px; font-weight:600; color:var(--cream)">${t.name}</a>
+              <span class="badge ${badgeClass(t.free_tier_badge)}">${t.free_tier_badge}</span>
+              ${t.featured ? '<span class="badge badge-lime">Featured</span>' : ''}
+              ${t.sponsored ? '<span class="badge" style="background:rgba(200,241,53,0.06);color:var(--lime-dim);border:1px solid rgba(200,241,53,0.15)">Sponsored</span>' : ''}
+            </div>
+            <div style="font-size:12px; color:var(--text-faint); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">${t.category} · ${t.tagline}</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px; flex-shrink:0">
+            <span style="font-size:12px; color:var(--text-faint)">⭐ ${t.rating}</span>
+            <a href="${t.url}" target="_blank" class="action-btn" style="background:var(--surface2); color:var(--text-dim); border:1px solid var(--border); text-decoration:none">↗ Visit</a>
+            <button class="action-btn" onclick="toggleFeatured('${t.id}', ${t.featured})" style="background:${t.featured ? 'var(--lime-glow)' : 'var(--surface2)'}; color:${t.featured ? 'var(--lime)' : 'var(--text-faint)'}; border:1px solid ${t.featured ? 'rgba(200,241,53,0.2)' : 'var(--border)'}">
+              ${t.featured ? '★ Unfeature' : '☆ Feature'}
+            </button>
+          </div>
+        </div>`).join('');
+
+      document.getElementById('tools-list').innerHTML = html;
+    }
+
+    function renderCategories() {
+      const cats = {};
+      allTools.forEach(t => { cats[t.category] = (cats[t.category] || 0) + 1; });
+      const sorted = Object.entries(cats).sort((a,b) => b[1]-a[1]);
+      const html = sorted.map(([cat, count]) => `
+        <div style="background:var(--bg3); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; cursor:pointer" onclick="document.getElementById('cat-filter').value='${cat}'; filterTools()">
+          <div style="font-family:var(--font-head); font-size:22px; font-weight:800; color:var(--lime)">${count}</div>
+          <div style="font-size:13px; color:var(--text-dim); margin-top:2px">${cat}</div>
+        </div>`).join('');
+      document.getElementById('cat-breakdown').innerHTML = html;
+    }
+
+    function toggleFeatured(id, current) {
+      // In a real setup, this would call the GitHub API to update tools.json
+      // For now it shows the JSON change needed
+      const msg = current
+        ? `To unfeature: Set "featured": false for ${id} in tools/tools.json on GitHub`
+        : `To feature: Set "featured": true for ${id} in tools/tools.json on GitHub`;
+      alert(msg + '\n\nTip: The easiest way is to edit tools/tools.json directly on GitHub.com');
+    }
+
+    loadTools();
+  </script>
+</body>
+</html>

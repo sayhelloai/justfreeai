@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Free AI Tool — JustFreeAI</title>
+  <meta name="description" content="Know a free AI tool that should be on JustFreeAI? Submit it for review. We only list tools with genuine free tiers and quality user experiences.">
+  <link rel="canonical" href="https://justfreeai.com/submit.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23c8f135'/><text y='24' x='6' font-size='20' font-family='serif' font-weight='900' fill='%230a0f0a'>J</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">J</div>
+        <span class="logo-text">Just<span>Free</span>AI</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">← Back to Tools</a>
+        <a href="mailto:sponsor@justfreeai.com" class="btn-submit">Sponsor</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="form-page container">
+      <h1>Submit a Free AI Tool</h1>
+      <p>Found a great free AI tool that deserves a spot here? We review every submission and only list tools with genuine free tiers, real quality, and good user feedback. No spam, no low-quality listings.</p>
+
+      <div style="background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius); padding:16px 20px; margin-bottom:32px; font-size:14px; color:var(--text-dim)">
+        ✦ We typically review submissions within <strong style="color:var(--cream)">3–5 days</strong>. You'll receive an email once reviewed.
+      </div>
+
+      <!-- Replace action with your Formspree endpoint or Netlify forms -->
+      <form id="submit-form" onsubmit="handleSubmit(event)">
+
+        <div class="form-group">
+          <label class="form-label" for="tool-name">Tool Name <span class="form-required">*</span></label>
+          <input type="text" id="tool-name" name="tool_name" class="form-input" placeholder="e.g. NotebookLM" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tool-url">Tool URL <span class="form-required">*</span></label>
+          <input type="url" id="tool-url" name="tool_url" class="form-input" placeholder="https://..." required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tool-category">Category <span class="form-required">*</span></label>
+          <select id="tool-category" name="category" class="form-select" required>
+            <option value="" disabled selected>Select a category</option>
+            <option>AI Assistant</option>
+            <option>Coding</option>
+            <option>Image Generation</option>
+            <option>Video</option>
+            <option>Audio & Music</option>
+            <option>Research</option>
+            <option>AI Search</option>
+            <option>Presentations</option>
+            <option>Productivity</option>
+            <option>Writing</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="free-tier">Describe the Free Tier <span class="form-required">*</span></label>
+          <input type="text" id="free-tier" name="free_tier" class="form-input" placeholder="e.g. 10 free generations/day, no credit card required" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="description">Why should we list this tool? <span class="form-required">*</span></label>
+          <textarea id="description" name="description" class="form-textarea" placeholder="Tell us what makes this tool great, what problem it solves, and why the free tier is genuinely useful..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="submitter-email">Your Email (optional — for submission updates)</label>
+          <input type="email" id="submitter-email" name="email" class="form-input" placeholder="you@example.com">
+        </div>
+
+        <button type="submit" class="form-submit">Submit for Review →</button>
+      </form>
+
+      <div id="submit-success" class="hidden" style="background:rgba(200,241,53,0.06); border:1px solid rgba(200,241,53,0.2); border-radius:var(--radius); padding:24px; text-align:center; margin-top:24px">
+        <div style="font-size:32px; margin-bottom:12px">✅</div>
+        <h3 style="color:var(--cream); margin-bottom:8px">Submission received!</h3>
+        <p style="color:var(--text-dim); font-size:14px">Thank you for contributing. We'll review this tool and get back to you within 3–5 days.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">J</div>
+        <span class="logo-text">Just<span>Free</span>AI</span>
+      </a>
+      <div class="footer-copy">© 2025 <span>JustFreeAI</span></div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const obj = Object.fromEntries(data.entries());
+
+      // Option 1: Formspree — replace YOUR_FORM_ID below
+      // fetch('https://formspree.io/f/YOUR_FORM_ID', { method:'POST', body: JSON.stringify(obj), headers:{'Content-Type':'application/json','Accept':'application/json'} })
+      //   .then(() => showSuccess(form));
+
+      // Option 2: Netlify Forms — add data-netlify="true" to the form tag
+      // It just works automatically on Netlify hosting.
+
+      // For now, show success immediately (replace with real form handler):
+      showSuccess(form);
+    }
+
+    function showSuccess(form) {
+      form.style.display = 'none';
+      document.getElementById('submit-success').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
