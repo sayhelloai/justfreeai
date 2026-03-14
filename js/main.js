@@ -65,7 +65,7 @@ function logoHTML(tool, size = 52) {
 function toolCardHTML(tool) {
   const bc = badgeClass(tool.free_tier_badge);
   return `
-    <div class="tool-card${tool.sponsored ? ' sponsored' : ''}" onclick="window.location.href='/tool/${tool.id}.html'">
+    <a href="/tool/${tool.id}.html" class="tool-card${tool.sponsored ? ' sponsored' : ''}" style="display:block;text-decoration:none;color:inherit">
       ${tool.sponsored ? '<span class="sponsored-tag">Sponsored</span>' : ''}
       <div class="tool-card-head">
         <div class="tool-logo">${logoHTML(tool)}</div>
@@ -82,11 +82,11 @@ function toolCardHTML(tool) {
           <span class="rating-num">${tool.rating}</span>
           <span class="rating-count">(${fmtNum(tool.reviews)})</span>
         </div>
-        <a href="${tool.url}" target="_blank" rel="noopener" class="tool-cta" onclick="event.stopPropagation()">
+        <span onclick="event.preventDefault();event.stopPropagation();window.open('${tool.url}','_blank')" class="tool-cta">
           Try Free →
-        </a>
+        </span>
       </div>
-    </div>`;
+    </a>`;
 }
 
 // ─── HERO FLOATING CARDS ──────────────────────────────────────────
@@ -181,9 +181,9 @@ function render() {
       <div class="container">
         <div class="cat-scroll">
           ${CATEGORIES.map(c => `
-            <div class="cat-pill${activeCategory === c.value ? ' active' : ''}" onclick="setCategory('${c.value}')">
+            <button class="cat-pill${activeCategory === c.value ? ' active' : ''}" onclick="setCategory('${c.value}')" type="button">
               <span class="cat-pill-icon">${c.icon}</span> ${c.label}
-            </div>`).join('')}
+            </button>`).join('')}
         </div>
       </div>
     </div>`;
@@ -280,13 +280,13 @@ function render() {
         <div class="sidebar-card">
           <div class="sidebar-title">🔥 Most Popular</div>
           ${[...allTools].sort((a,b) => b.reviews - a.reviews).slice(0,5).map(t => `
-            <div onclick="window.location.href='/tool/${t.id}.html'" style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--grey-100);cursor:pointer;transition:opacity 0.15s" onmouseenter="this.style.opacity='.7'" onmouseleave="this.style.opacity='1'">
+            <a href="/tool/${t.id}.html" style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--grey-100);text-decoration:none;transition:opacity 0.15s" onmouseenter="this.style.opacity='.7'" onmouseleave="this.style.opacity='1'">
               <div class="tool-logo" style="width:34px;height:34px;border-radius:8px;font-size:14px;flex-shrink:0">${t.logo ? `<img src="${t.logo}" alt="" style="width:100%;height:100%;object-fit:contain;padding:4px">` : t.name[0]}</div>
               <div>
                 <div style="font-size:13px;font-weight:600;color:var(--navy)">${t.name}</div>
                 <div style="font-size:11px;color:var(--grey-400)">${fmtNum(t.reviews)} reviews</div>
               </div>
-            </div>`).join('')}
+            </button>`).join('')}
         </div>
         <div class="sidebar-card" style="background:var(--blue-xlight);border-color:var(--blue-light)">
           <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px">Want to be featured?</div>

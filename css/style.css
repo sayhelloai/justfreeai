@@ -109,36 +109,18 @@ h1, h2, h3, h4, h5 {
 
 /* Logo */
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
   text-decoration: none;
+  line-height: 1;
 }
 
-.logo-mark {
-  width: 36px;
+.logo svg {
+  display: block;
   height: 36px;
-  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 17px;
-  color: white;
-  box-shadow: var(--shadow-blue);
-  flex-shrink: 0;
+  width: auto;
 }
-
-.logo-text {
-  font-weight: 700;
-  font-size: 19px;
-  color: var(--navy);
-  letter-spacing: -0.02em;
-}
-
-.logo-text span { color: var(--blue); }
 
 /* Nav search */
 .nav-search {
@@ -520,7 +502,11 @@ h1, h2, h3, h4, h5 {
   gap: 7px;
   padding: 10px 18px;
   background: transparent;
+  border: none;
   border-bottom: 3px solid transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   font-size: 14px;
   font-weight: 500;
   color: var(--grey-600);
@@ -530,6 +516,8 @@ h1, h2, h3, h4, h5 {
   flex-shrink: 0;
   border-radius: 0;
   margin-bottom: -1px;
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cat-pill:hover {
@@ -633,6 +621,10 @@ h1, h2, h3, h4, h5 {
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tool-card::before {

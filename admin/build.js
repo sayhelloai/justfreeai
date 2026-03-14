@@ -136,24 +136,21 @@ function generateToolPage(tool, allTools) {
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23c8f135'/><text y='24' x='6' font-size='20' font-family='serif' font-weight='900' fill='%230a0f0a'>J</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23032D60'/><polyline points='7,16 13,22 24,9' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='27' cy='4' r='2.5' fill='%2300A1E0'/></svg>">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="/" class="logo">
-        <div class="logo-mark">J</div>
-        <span class="logo-text">Just<span>Free</span>AI</span>
-      </a>
+      <a href="/" class="logo" aria-label="JustFreeAI Home"><svg width="160" height="36" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="#032D60"/><polyline points="9,18 15,25 27,10" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="5" r="3" fill="#00A1E0"/><text x="42" y="15" font-family="Georgia,serif" font-size="15" font-weight="700" fill="#032D60" letter-spacing="-0.3">JustFreeAI</text><text x="42" y="28" font-family="Arial,sans-serif" font-size="8.5" font-weight="600" fill="#9ca3af" letter-spacing="0.09em">FREE AI TOOLS</text></svg></a>
       <div class="nav-search">
         <span class="nav-search-icon">⌕</span>
         <input type="text" placeholder="Search free AI tools..." id="nav-search-input" aria-label="Search">
       </div>
       <div class="nav-links">
         <a href="/submit.html" class="nav-link">Submit a Tool</a>
-        <a href="mailto:sponsor@justfreeai.com" class="btn-submit">Sponsor</a>
+        <a href="mailto:sponsor@justfreeai.com?subject=Sponsorship%20Enquiry%20%E2%80%94%20JustFreeAI&body=Hi%20JustFreeAI%20team%2C%0A%0AI%27m%20interested%20in%20sponsoring%20a%20listing%20on%20JustFreeAI.com.%0A%0ATool%20name%3A%20%0AWebsite%3A%20%0ABudget%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="btn-submit">Sponsor</a>
       </div>
     </div>
   </nav>
@@ -225,7 +222,7 @@ function generateToolPage(tool, allTools) {
             <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Advertisement</div>
             <div style="min-height:90px;display:flex;align-items:center;justify-content:center">
               <!-- Ad slot: 728x90 leaderboard — replace with your ad network code -->
-              Your Ad Here · <a href="mailto:sponsor@justfreeai.com" style="color:#c8f135;margin-left:4px">Advertise here</a>
+              Your Ad Here · <a href="mailto:sponsor@justfreeai.com?subject=Sponsorship%20Enquiry%20%E2%80%94%20JustFreeAI&body=Hi%20JustFreeAI%20team%2C%0A%0AI%27m%20interested%20in%20sponsoring%20a%20listing%20on%20JustFreeAI.com.%0A%0ATool%20name%3A%20%0AWebsite%3A%20%0ABudget%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" style="color:#c8f135;margin-left:4px">Advertise here</a>
             </div>
           </div>
 
@@ -241,7 +238,7 @@ function generateToolPage(tool, allTools) {
           <div style="background:#1a231a;border:1px dashed #2a3a2a;border-radius:14px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#5a6055;font-size:12px;margin-bottom:20px">
             <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase">Advertisement</div>
             <span>300×250 Ad Slot</span>
-            <a href="mailto:sponsor@justfreeai.com" style="color:#c8f135;font-size:11px">Advertise here</a>
+            <a href="mailto:sponsor@justfreeai.com?subject=Sponsorship%20Enquiry%20%E2%80%94%20JustFreeAI&body=Hi%20JustFreeAI%20team%2C%0A%0AI%27m%20interested%20in%20sponsoring%20a%20listing%20on%20JustFreeAI.com.%0A%0ATool%20name%3A%20%0AWebsite%3A%20%0ABudget%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" style="color:#c8f135;font-size:11px">Advertise here</a>
           </div>
 
           <!-- Related tools -->
@@ -257,14 +254,11 @@ function generateToolPage(tool, allTools) {
 
   <footer class="footer">
     <div class="container"><div class="footer-bottom">
-      <a href="/" class="logo">
-        <div class="logo-mark">J</div>
-        <span class="logo-text">Just<span>Free</span>AI</span>
-      </a>
+      <a href="/" class="logo" aria-label="JustFreeAI Home"><svg width="160" height="36" viewBox="0 0 160 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="#032D60"/><polyline points="9,18 15,25 27,10" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="5" r="3" fill="#00A1E0"/><text x="42" y="15" font-family="Georgia,serif" font-size="15" font-weight="700" fill="#032D60" letter-spacing="-0.3">JustFreeAI</text><text x="42" y="28" font-family="Arial,sans-serif" font-size="8.5" font-weight="600" fill="#9ca3af" letter-spacing="0.09em">FREE AI TOOLS</text></svg></a>
       <div class="footer-links">
         <a href="/about.html" class="footer-link">About</a>
         <a href="/submit.html" class="footer-link">Submit Tool</a>
-        <a href="mailto:hello@justfreeai.com" class="footer-link">Contact</a>
+        <a href="mailto:hello@justfreeai.com?subject=Hello%20from%20JustFreeAI" class="footer-link">Contact</a>
         <a href="/privacy.html" class="footer-link">Privacy</a>
       </div>
       <div class="footer-copy">© 2025 <span>JustFreeAI</span></div>
